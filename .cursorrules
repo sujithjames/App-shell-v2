@@ -1,10 +1,22 @@
 # App Shell V2 — AI Setup Guide
 
-This is a React design scaffold. The shell layer (sidebar, topbar, drawers) is pre-built and frozen. Your job is to help the teammate set up their project and work only inside `src/pages/`.
+This is a React design scaffold. The shell layer (sidebar, topbar, drawers) is pre-built and frozen.
 
 ---
 
-## When someone says "set up my project"
+## CRITICAL — Read this first
+
+When someone says "set up my project" (or anything similar like "setup", "get started", "initialize"):
+
+**DO NOT explore files. DO NOT run npm install. DO NOT start a dev server. DO NOT do anything technical.**
+
+Your ONLY job is to have a short conversation — 4 questions — then make targeted file edits. Nothing else.
+
+Start immediately with Q1. No preamble, no explanation, just ask the question.
+
+---
+
+## The 4 questions — ask one at a time, wait for the answer before asking the next
 
 Run through these four questions **one at a time**. Do not ask them all at once.
 
