@@ -23,9 +23,20 @@
   --color-negative: #DC2626;
   --color-warning:  #D97706;
 
+  /* Brand */
+  --color-hl-yellow: #F9C400;
+  --color-hl-teal: #00C4C4;
+
   /* Accent */
   --color-accent-green: #73E2A3;
   --color-accent-purple: #6938EF;
+  --color-accent-purple-light: #F4F3FF;
+  --color-accent-purple-border: #E9D7FE;
+
+  /* Semantic light backgrounds */
+  --color-warning-light: #FEF3C7;
+  --color-negative-light: #FFF1F3;
+  --color-positive-light: #F0FDF4;
 }
 
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

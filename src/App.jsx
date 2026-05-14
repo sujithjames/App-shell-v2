@@ -8,6 +8,7 @@ import Demo_Fullscreen_Builder from './pages/Demo_Fullscreen_Builder'
 import Demo_Settings_Tabbed from './pages/Demo_Settings_Tabbed'
 import Demo_TopBar_VerticalTabs from './pages/Demo_TopBar_VerticalTabs'
 import Demo_Settings_VerticalTabs_BackToolbar from './pages/Demo_Settings_VerticalTabs_BackToolbar'
+import Demo_Fullscreen_VerticalTabs_BackToolbar from './pages/Demo_Fullscreen_VerticalTabs_BackToolbar'
 
 const SECTIONS = [
   {
@@ -48,6 +49,12 @@ const SECTIONS = [
         label: 'Full-screen builder',
         description: 'Builder or editor with no sidebar or section tabs',
         tag: 'no sidebar · builder bar · canvas: full screen',
+      },
+      {
+        path: '/demo-fullscreen-vertical-tabs-back-toolbar',
+        label: 'Fullscreen + Vertical tabs + Back toolbar',
+        description: 'Detail page with side navigation and no main nav',
+        tag: 'no sidebar · no topbar · back toolbar · vertical tabs · canvas: level 1',
       },
     ],
   },
@@ -132,6 +139,7 @@ export default function App() {
         <Route path="/demo-settings-tabbed" element={<Demo_Settings_Tabbed />} />
         <Route path="/demo-settings-vertical-tabs" element={<Demo_TopBar_VerticalTabs />} />
         <Route path="/demo-settings-vertical-tabs-back-toolbar" element={<Demo_Settings_VerticalTabs_BackToolbar />} />
+        <Route path="/demo-fullscreen-vertical-tabs-back-toolbar" element={<Demo_Fullscreen_VerticalTabs_BackToolbar />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

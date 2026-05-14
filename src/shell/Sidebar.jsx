@@ -80,8 +80,16 @@ export default function Sidebar({
   navSections = [],
   sections = [],
   onBack,
+  onOpenSwitcher,
+  onCollapsedChange,
 }) {
   const [collapsed, setCollapsed] = useState(false)
+
+  function toggleCollapsed() {
+    const next = !collapsed
+    setCollapsed(next)
+    onCollapsedChange?.(next)
+  }
   const isSettings = variant === 'settings'
   const NavItem = isSettings ? NavItemSettings : NavItemMainNav
 
@@ -98,13 +106,17 @@ export default function Sidebar({
           {/* Subaccount switcher */}
           {collapsed ? (
             <div
+              onClick={onOpenSwitcher}
               title="Headquarters 1800-PLUMBER-200.."
               className="size-9 mx-auto rounded-lg border border-[#344054] flex items-center justify-center cursor-pointer hover:border-[#475467]"
             >
               <span className="text-[#D0D5DD] text-[11px] font-semibold leading-none">HQ</span>
             </div>
           ) : (
-            <div className="flex items-center gap-2 border border-[#344054] rounded-lg px-2 py-2 cursor-pointer hover:border-[#475467]">
+            <div
+              onClick={onOpenSwitcher}
+              className="flex items-center gap-2 border border-[#344054] rounded-lg px-2 py-2 cursor-pointer hover:border-[#475467]"
+            >
               <span className="flex-1 text-[#98A2B3] text-[13px] font-medium leading-none truncate">
                 Headquarters 1800-PLUMBER-200..
               </span>
@@ -190,15 +202,17 @@ export default function Sidebar({
         </div>
 
         {/* Bottom: Settings */}
-        <div className="flex flex-col gap-2 mt-2">
-          <div className={`h-px bg-[#1D2939] ${collapsed ? 'mx-3' : ''}`} />
-          <NavItem icon={Settings} label="Settings" collapsed={collapsed} />
-        </div>
+        {!isSettings && (
+          <div className="flex flex-col gap-2 mt-2">
+            <div className={`h-px bg-[#1D2939] ${collapsed ? 'mx-3' : ''}`} />
+            <NavItem icon={Settings} label="Settings" collapsed={collapsed} />
+          </div>
+        )}
       </div>
 
       {/* Collapse toggle */}
       <div
-        onClick={() => setCollapsed(c => !c)}
+        onClick={toggleCollapsed}
         className="absolute bottom-6 -right-3 bg-[#73E2A3] rounded-xl size-6 flex items-center justify-center shadow-sm cursor-pointer hover:bg-[#5DD08C] transition-colors"
       >
         {collapsed ? (

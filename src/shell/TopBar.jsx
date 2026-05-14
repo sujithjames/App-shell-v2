@@ -1,7 +1,7 @@
 import { useRef, useState, useLayoutEffect, useEffect } from 'react'
 import { Sparkles, Megaphone, Bell, HelpCircle, ChevronDown } from 'lucide-react'
 
-function GlobalIcons() {
+function GlobalIcons({ onOpenNotifications, onOpenHelp }) {
   return (
     <div className="flex items-center gap-0.5 shrink-0">
       <svg width="0" height="0" className="absolute" aria-hidden="true">
@@ -28,10 +28,16 @@ function GlobalIcons() {
         </button>
         <span className="absolute top-0.5 right-0.5 size-2 rounded-full bg-red-500 ring-[1.5px] ring-white pointer-events-none" />
       </div>
-      <button className="size-8 flex items-center justify-center rounded-full text-[#98A2B3] hover:text-[#667085] hover:bg-[#F9FAFB] transition-colors">
+      <button
+        onClick={onOpenNotifications}
+        className="size-8 flex items-center justify-center rounded-full text-[#98A2B3] hover:text-[#667085] hover:bg-[#F9FAFB] transition-colors"
+      >
         <Bell size={16} />
       </button>
-      <button className="size-8 flex items-center justify-center rounded-full text-[#98A2B3] hover:text-[#667085] hover:bg-[#F9FAFB] transition-colors">
+      <button
+        onClick={onOpenHelp}
+        className="size-8 flex items-center justify-center rounded-full text-[#98A2B3] hover:text-[#667085] hover:bg-[#F9FAFB] transition-colors"
+      >
         <HelpCircle size={16} />
       </button>
       <button className="size-8 rounded-full bg-[#344054] flex items-center justify-center hover:bg-[#1D2939] transition-colors ml-1">
@@ -193,6 +199,8 @@ export default function TopBar({
   activeSubTab = '',
   onSubTabChange,
   actions,
+  onOpenNotifications,
+  onOpenHelp,
 }) {
   if (variant === 'simple') {
     return (
@@ -203,7 +211,7 @@ export default function TopBar({
             <span className="text-[16px] font-semibold text-[#101828]">{title}</span>
           </div>
           <div className="flex-1" />
-          <GlobalIcons />
+          <GlobalIcons onOpenNotifications={onOpenNotifications} onOpenHelp={onOpenHelp} />
         </div>
       </header>
     )
@@ -226,7 +234,7 @@ export default function TopBar({
             textSize="text-[14px]"
           />
         </div>
-        <GlobalIcons />
+        <GlobalIcons onOpenNotifications={onOpenNotifications} onOpenHelp={onOpenHelp} />
       </div>
 
       {/* Row 2: subLabel + sub-tabs + optional actions */}
